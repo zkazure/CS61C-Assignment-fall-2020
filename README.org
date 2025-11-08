@@ -1,0 +1,16 @@
+#+TITLE: README
+
+This the a log file to record the progress of lab and proj.
+
+<2025-11-08 Sat> finish lab01
+
+<2025-11-06 Thu> learn lecture 14, 15
+
+<2025-11-03 Mon> learn lecture 12, 13
+
+<2025-10-30 Thu> learn lecture 10, 11
+
+<2025-10-27 Mon> finish lab00, disc01, learn lecture 8, 9
+
+
+
