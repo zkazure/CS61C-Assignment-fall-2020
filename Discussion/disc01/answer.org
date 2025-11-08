@@ -1,0 +1,85 @@
+:PROPERTIES:
+:NOTER_DOCUMENT: disc01.pdf
+:NOTER_PAGE: 4
+:END:
+#+TITLE: Answer
+
+* Pre-Check
+
+** context and bits
+depending one context, the same set of bits will represent different things.
+
+** addition and overflow
+adding numbers of opposite signs may cause overflow.
+\( 111 + 001 = 000 \)
+but this is not an error.
+
+** unsigned number conversion
+
+negative number converted to unsigned number will always larger than positive number.
+
+** bias notation
+True.
+
+* Unsigned Integers
+
+** different base conversion
+there are three common radices
+- decimal
+- binary
+- hexadecimal
+*** a
+1. 0b10010011
+   - 147
+   - 0x93
+2. 63
+   - 0b0011 1111
+   - 0x3f
+3. 0b0010 0100
+   - 36
+   - 0x24
+4. 0= 0b0= 0x0
+5. 39
+   - 0b0010 0111
+   - 0x27
+6. 437
+   - 0b0001 1011 0101
+   - 0x1b5
+7. 0x0123
+   - 0b0000 0001 0010 0011
+   - 291
+*** b
+1. 0b1101 0011 1010 1101
+2. 0b1011 0011 0011 1111
+3. 0b0111 1110 1100 0100
+
+*** c
+- 64 Ki
+- 128 Mi
+- 8 Ti
+- 64 Gi
+
+* Signed Integers
+
+** a
+1. 255 0
+2. 128 0
+3. 127 -128
+
+** b
+1. 0b0000 0000, 0b0000 0001, N/A
+2. 0b0111 1111, 0b1000 0000, 0b0111 1110
+3. 0b0000 0000, 0b0000 0001, 0b1111 1111
+   
+** e
+that is easy, if we only add one number and one that the number with flipped digit, we will get a number that all digit is 1, then plus one, we get 0.
+
+
+* Arithmetic and Counting
+** a
+3. it overflow but calculation is true, not a overflow error. 
+** b
+1. 9
+2. 6
+3. 7
+4. \( 2 ^{44} \)
