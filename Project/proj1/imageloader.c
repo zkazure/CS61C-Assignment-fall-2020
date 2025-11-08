@@ -25,17 +25,52 @@
 //Make sure that you close the file with fclose before returning.
 Image *readData(char *filename) 
 {
-	//YOUR CODE HERE
+    // YOUR CODE HERE
+    FILE *fp = fopen(filename, "r");
+    char type[20];
+    Image *image = (Image *) malloc(sizeof(Image));
+    int max_value;
+    fscanf(fp, "%s", type);
+    fscanf(fp, "%u%u%d", &image->cols, &image->rows,
+           &max_value);
+    image->image = (Color **)malloc(sizeof(Color *) * image->rows);
+    for (int i = 0; i < image->rows; i += 1)
+        image->image[i] = (Color *)malloc(sizeof(Color) * image->cols);
+    
+    for (int i = 0; i < image->rows; i += 1) {
+        for (int j = 0; j < image->cols; j += 1) {
+            fscanf(fp, "%hhu%hhu%hhu", &image->image[i][j].R,
+                   &image->image[i][j].G, &image->image[i][j].B);
+        }
+    }
+    fclose(fp);
+
+    return image;
 }
 
 //Given an image, prints to stdout (e.g. with printf) a .ppm P3 file with the image's data.
 void writeData(Image *image)
 {
-	//YOUR CODE HERE
+    // YOUR CODE HERE
+    printf("P3\n");
+    printf("%u %u\n", image->cols, image->rows);
+    for (uint32_t i = 0; i < image->rows; i += 1) {
+        for (uint32_t j = 0; j < image->cols; j += 1) {
+            printf("%03d %03d %03d", image->image[i][j].R, image->image[i][j].G, image->image[i][j].B);
+            if (j < image->cols - 1) {
+                printf("   ");
+            }
+        }
+        printf("\n");
+    }
 }
 
 //Frees an image
 void freeImage(Image *image)
 {
-	//YOUR CODE HERE
+    for (int i = 0; i < image->rows; i += 1) {
+        free(image->image[i]);
+    }
+    free(image->image);
+    free(image);
 }
