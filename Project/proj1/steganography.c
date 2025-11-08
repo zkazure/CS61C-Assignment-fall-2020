@@ -21,13 +21,43 @@
 //Determines what color the cell at the given row/col should be. This should not affect Image, and should allocate space for a new Color.
 Color *evaluateOnePixel(Image *image, int row, int col)
 {
-	//YOUR CODE HERE
+    // YOUR CODE HERE
+    Color *new_color = (Color *)malloc(sizeof(Color));
+    uint8_t key = image->image[row][col].B;
+    if ( (key & 1) == 0) {
+        new_color->R = 0;
+        new_color->G = 0;
+        new_color->B = 0;
+    } else {
+        new_color->R = 1;
+        new_color->G = 1;
+        new_color->B = 1;
+    }
+
+    return new_color;
 }
 
 //Given an image, creates a new image extracting the LSB of the B channel.
 Image *steganography(Image *image)
 {
-	//YOUR CODE HERE
+    // YOUR CODE HERE
+    Image *new_image = (Image *)malloc(sizeof(Image));
+    new_image->cols = image->cols;
+    new_image->rows = image->cols;
+    new_image->image = (Color **)malloc(sizeof(Color *) * new_image->rows);
+    for (int i = 0; i < new_image->rows; i += 1) {
+        new_image->image[i] = (Color *) malloc(sizeof(Color) * image->cols);
+    }
+
+    for (int i = 0; i < new_image->rows; i += 1) {
+        for (int j = 0; j < new_image->cols; j += 1) {
+            Color *color_ij = evaluateOnePixel(image, i, j);
+            new_image->image[i][j] = *color_ij;
+            free(color_ij);
+        }
+    }
+
+    return new_image;
 }
 
 /*
@@ -45,5 +75,20 @@ Make sure to free all memory before returning!
 */
 int main(int argc, char **argv)
 {
-	//YOUR CODE HERE
+    // YOUR CODE HERE
+    if (argc != 2) {
+        printf("usage: %s filename\n", argv[0]);
+        printf("need at least one parameter\n");
+        exit(-1);
+    }
+
+    char *filename = argv[1];
+    Image *encoded_image = readData(filename);
+    Image *decoded_image = steganography(encoded_image);
+    writeData(decoded_image);
+    
+    freeImage(encoded_image);
+    freeImage(decoded_image);
+
+    return 0;
 }
