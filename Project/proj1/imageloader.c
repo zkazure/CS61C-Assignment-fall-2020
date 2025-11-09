@@ -54,9 +54,10 @@ void writeData(Image *image)
     // YOUR CODE HERE
     printf("P3\n");
     printf("%u %u\n", image->cols, image->rows);
+    printf("255\n");
     for (uint32_t i = 0; i < image->rows; i += 1) {
         for (uint32_t j = 0; j < image->cols; j += 1) {
-            printf("%03d %03d %03d", image->image[i][j].R, image->image[i][j].G, image->image[i][j].B);
+            printf("%3d %3d %3d", image->image[i][j].R, image->image[i][j].G, image->image[i][j].B);
             if (j < image->cols - 1) {
                 printf("   ");
             }

@@ -29,9 +29,9 @@ Color *evaluateOnePixel(Image *image, int row, int col)
         new_color->G = 0;
         new_color->B = 0;
     } else {
-        new_color->R = 1;
-        new_color->G = 1;
-        new_color->B = 1;
+        new_color->R = 255;
+        new_color->G = 255;
+        new_color->B = 255;
     }
 
     return new_color;

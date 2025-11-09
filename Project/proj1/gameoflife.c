@@ -12,24 +12,87 @@
 **
 **************************************************************************/
 
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <inttypes.h>
 #include "imageloader.h"
 
-//Determines what color the cell at the given row/col should be. This function allocates space for a new Color.
-//Note that you will need to read the eight neighbors of the cell in question. The grid "wraps", so we treat the top row as adjacent to the bottom row
-//and the left column as adjacent to the right column.
+// Determines what color the cell at the given row/col should be. This function
+// allocates space for a new Color. Note that you will need to read the eight
+// neighbors of the cell in question. The grid "wraps", so we treat the top row
+// as adjacent to the bottom row and the left column as adjacent to the right
+// column.
+int count_alive_neigbour(Image *image, int row, int col) {
+    int cnt = 0;
+    for (int i = -1; i <= 1; i += 1) {
+        int new_row = (row+i+image->rows) % image->rows;
+        for (int j=-1; j<=1; j+=1) {
+            if (i==0 && j==0) {
+                continue;
+            }
+            int new_col = (col+j+image->cols) % image->cols;
+            if (image->image[new_row][new_col].R != 0) {
+                cnt += 1;
+            }
+        }
+    }
+
+    return cnt;
+}
+
 Color *evaluateOneCell(Image *image, int row, int col, uint32_t rule)
 {
-	//YOUR CODE HERE
+    // YOUR CODE HERE
+    Color *new_cell = (Color *)malloc(sizeof(Color));
+    int cnt_alive = count_alive_neigbour(image, row, col);
+
+    if (image->image[row][col].R != 0) {
+        if (((rule >> (cnt_alive+9)) & 1) != 0) {
+            new_cell->R = 255;
+            new_cell->G = 255;
+            new_cell->B = 255;
+        } else {
+            new_cell->R = 0;
+            new_cell->G = 0;
+            new_cell->B = 0;
+        }   
+    } else {
+        if (((rule >> (cnt_alive)) & 1) != 0) {
+            new_cell->R = 255;
+            new_cell->G = 255;
+            new_cell->B = 255;
+        } else {
+            new_cell->R = 0;
+            new_cell->G = 0;
+            new_cell->B = 0;
+        }        
+    }
+
+    return new_cell;
 }
 
 //The main body of Life; given an image and a rule, computes one iteration of the Game of Life.
 //You should be able to copy most of this from steganography.c
 Image *life(Image *image, uint32_t rule)
 {
-	//YOUR CODE HERE
+    // YOUR CODE HERE
+    Image *new_image = (Image *)malloc(sizeof(Image));
+    new_image->cols = image->cols;
+    new_image->rows = image->rows;
+    new_image->image = (Color **)malloc(sizeof(Color *) * new_image->rows);
+    for (int i = 0; i < new_image->rows; i += 1) {
+        new_image->image[i] = (Color *)malloc(sizeof(Color) * new_image->cols);
+    }
+    for (int i = 0; i < new_image->rows; i += 1) {
+        for (int j = 0; j < new_image->cols; j += 1) {
+            Color *cell_ij = evaluateOneCell(image, i, j, rule);
+            new_image->image[i][j] = *cell_ij;
+            free(cell_ij);
+        }
+    }
+    
+    return new_image;
 }
 
 /*
@@ -49,5 +112,23 @@ You may find it useful to copy the code from steganography.c, to start.
 */
 int main(int argc, char **argv)
 {
-	//YOUR CODE HERE
+    // YOUR CODE HERE
+    if (argc <= 2) {
+        printf("usage: %s filename rule\n", argv[0]);
+        printf("filename is an ASCII PPM file (type P3) with maximum value "
+               "255.\n");
+        printf("rule is a hex number beginning with 0x; Life is 0x1808");
+        exit(-1);
+    }
+
+    char *filename = argv[1];
+    char *endptr;
+    uint32_t rule = strtol(argv[2], &endptr, 16);
+    Image *image = readData(filename);
+    Image *new_image = life(image, rule);
+    writeData(new_image);
+    freeImage(image);
+    freeImage(new_image);
+    
+    return 0;
 }
