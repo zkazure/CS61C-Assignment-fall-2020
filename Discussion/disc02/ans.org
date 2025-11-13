@@ -1,0 +1,40 @@
+:PROPERTIES:
+:NOTER_DOCUMENT: disc02.pdf
+:NOTER_PAGE: 5
+:END:
+#+TITLE: Discussion 2
+
+* Pre-Check
+
+1. True.
+2. pointer is the address of particular variable in memory.
+3. you will get a "random" value that the variable "point" to.
+   If you change it, computer may go wrong.
+4. memory in stack only valid in specific scope. 
+
+* C
+1. address of p, address of p, 0x2A
+2. explain in English.
+   - if the array exist and not empty, return the sum of each elements in that array.
+   - (passed)
+
+* Programming with Pointers
+passed 
+
+* Memory Management
+1. memory
+   - static
+   - static 
+   - static 
+   - code, static or stack
+   - code
+   - heap
+   - static or stack
+2. write code
+   - ~int arr[] = (int*) malloc(sizeof(int) * k);~
+   - ~str = (char *)malloc(sizeof(char) * (p+1));~
+   - ~mat = (int **)calloc(n, sizeof(int *));~
+     ~mat[i] = (int *)calloc(m, sizeof(int));~
+3. input may be overflow and change the other part of memory.
+4. passed
+5. passed
