@@ -46,5 +46,8 @@ vector-memcheck: $(VECTOR_PROG)
 clean:
 	-rm -rf core *.o *~ "#"*"#" Makefile.bak $(BINARIES) *.dSYM
 
+$(VECTOR_PROG): $(VECTOR_OBJS)
+	$(CC) $(CFLAGS) -g -o $(VECTOR_PROG) $(VECTOR_OBJS) $(LDFLAGS)
+
 vector.c: vector.h
 vector-test.c: vector.h
