@@ -1,0 +1,27 @@
+:PROPERTIES:
+:NOTER_DOCUMENT: disc03.pdf
+:NOTER_PAGE: 1
+:END:
+#+TITLE: Discussion 3
+
+* Pre-Check
+:PROPERTIES:
+:NOTER_PAGE: 3
+:END:
+1. True
+2. True
+3. False
+
+
+
+* Floating Point
+:PROPERTIES:
+:NOTER_PAGE: (1 0.4777835859905907 . 0.14884979702300408)
+:ID:       2a3e721b-b8dd-4975-952d-1b762922ce59
+:END:
+
+1. only 2, one is "positive", the other is "negative"
+2. all Mantissa is one.
+   \( \sum\limits_{i=1}^{23} 2 ^{-i} = 1 - 2 ^{-23} \), so the max number is that \( (1+(1-2 ^{-23})) * 2 ^{127} \)
+3. \( 2 ^{-23} \cdot 2 ^{-126} \)
+4. \( (1) \cdot 2 ^{-126} \)

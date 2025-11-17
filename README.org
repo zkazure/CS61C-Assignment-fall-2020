@@ -2,6 +2,10 @@
 
 This the a log file to record the progress of lab and proj.
 
+<2025-11-17 Mon> write disc03
+
+<2025-11-13 Thu> learn lecture 17, 18. finish disc02, lab02
+
 <2025-11-08 Sat> finish lab01
 
 <2025-11-06 Thu> learn lecture 14, 15
