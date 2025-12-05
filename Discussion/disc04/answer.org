@@ -1,0 +1,160 @@
+#+TITLE: Answer
+
+* Pre-Check
+
+1. no, *t* and *a* registers may have been changed, but *s* registers cannot.
+2. False, it is only correct for some four-bytes long data type.
+3. yes
+4. True, 'd' is 100 in ASCII code.
+5. no, *jalr* is to jump to the address stored in the specified register
+6. no, *j* will not do link operation.
+
+* RISC-V: A Rundown
+
+#+begin_src asm
+  main:
+      addi s0, x0, 5              ; int x = 5
+      sw s0, 0(s1)                ; y[0] = x
+      mul t0, s0, s0              ; t0 = x*x
+      sw t0, 4(s1)                ; y[1] = t0
+#+end_src
+
+* Registers
+ 
+#+begin_src asm
+  main:
+      add x8, x0, x11
+      or s2, ra, t5
+#+end_src
+
+* Basic Instructions
+
+1. t0 = arr[3]
+2. arr[4] = t0
+3. arr[t0] += 1
+4. t0 = -arr[0]
+
+* C to RISC-V
+
+** 1
+#+begin_src asm
+  main:
+      addi s0, x0, 4
+      addi s1, x0, 5
+      addi s2, x0, 6
+      addi s3, x0, 10
+      add s3, s3, s0
+      add s3, s3, s1
+      add s3, s3, s2    
+#+end_src
+
+** 2
+#+begin_src asm
+  main:
+      sw x0, 0(s0)
+      addi s1, x0, 2
+      sw s1, 4(s0)
+
+      slli t0, s1, 2
+      add t0, t0, s0
+      sw s1, 0(t0)      
+#+end_src
+
+** 3
+#+begin_src asm
+  main:
+      addi s0, x0, 5
+      addi s1, x0, 10
+
+      add t0, s0, s0
+      bne t0, s1, else
+      add s0, x0, x0
+      ; xor s0, x0, x0
+      jal x0, exit
+  else:
+      addi s1, s0, -1
+  exit:
+
+#+end_src
+
+** 4
+#+begin_src C
+  int a = 0;
+  int b = 1;
+  for (; a<30; a++) {
+      b += b;
+  }
+
+#+end_src
+
+** 5
+#+begin_src asm
+  main:
+      add s1, x0, x0
+  loop:
+      beq s0, x0, exit
+      add s1, s1, s0
+      addi s0, s0, -1
+      jal x0, loop
+  exit: 
+      
+#+end_src
+
+* RISC-V with Arrays and Lists
+
+1. arr[1] = arr[0] + arr[2]
+2. each value plus 1
+3. each value become negative
+
+* RISC-V Calling Conventions
+
+1. use a0, a1... (a0-a7)
+2. a0, a1
+3. stack pointer, used in prologue and epilogue
+4. a0 (a0-a7, t0-t6 and ra)
+5. nothing (sp, gp, tp, s0-s11)
+6. sp, gp, tp, s0-s11 are guaranteed
+
+* Writing RISC-V Functions
+
+#+begin_src asm
+  main:
+      addi a0, x0, n
+      jal ra, sumSquare
+  sumSquare:
+      addi sp, sp, -12
+      sw ra, 0(sp)
+      sw s0, 4(sp)
+      sw s1, 8(sp)
+      add s0, x0, a0
+      add s1, x0, x0
+  loop:
+      beq s0, x0, end
+      add a0, s0, x0
+      jal ra, square
+      add s0, s0, -1
+      jal x0, loop
+  end:
+      add a0, x0, s1
+      lw ra, 0(sp)
+      lw s0, 4(sp)
+      lw s1, 8(sp)
+      addi sp, sp, 12
+      ret
+  square:
+      mul a0, a0, a0
+      ret
+#+end_src
+
+* More Translating between C and RISC-V
+
+#+begin_src C
+  int Func(int x, int y) {
+      int result = 1;
+      for (; y>0; --y) {
+          result *= x;
+      }
+
+      return result;
+  }
+#+end_src
