@@ -1,0 +1,37 @@
+#+title: Discussion 05
+
+* Pre-Check
+
+1. true. assembler will replaced them
+2. *False*, that the job of compiler. assembler is to replace pseudoinstructions and resolve offset.
+3. *False*, it needs to reallocate all absolute address.
+4. *False*, jar will be only know to jump where in run time.
+   
+* Call
+1. program is just data. We do not to modify hardware and be able to run different program
+2. *Two*, find address of all labels, and resolve forward references.
+3. six main part of *object files*
+   - *Header*: size and position of other parts. 
+   - *Text*: machine code. 
+   - *Data*: binary representation of code.
+   - *Relocation Table*: the reference that jump to out file. 
+   - *Symbol Table*: the reference to jump to data in the file. 
+   - *Debugging Information*: the information provided to debugger.
+4. assemble, linker
+
+   
+* Assembling RISC-V
+
+1. 5, 6, 7, 14, 15
+2. the first pass will resolve the backward reference.
+3. record where sum, loop and end is.
+   sometimes only sum could be record in the symbol table,
+   because only function could be referenced by other files.
+   here, this code is converted from C, so assembler know which
+   labels are function or not.
+4. array and print_int
+
+* RISC-V Addressing
+1. \( \left[ -2 ^{12}, 2 ^{12}-1 \right] \)
+2. \( \left[ -2 ^{19}, 2 ^{19} -1 \right] \)
+
