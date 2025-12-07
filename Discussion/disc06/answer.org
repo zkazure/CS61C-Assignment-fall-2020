@@ -1,0 +1,35 @@
+#+title: Discussion 06
+
+* Per-Check
+1. False
+2. *False*, delay will increases with depth of circuit. 
+3. False
+
+* Boolean Logic
+
+1. \( \bar{A} + AB = \overline{A(\overline{AB})} = \overline{A(\bar{A}+\bar{B})} = A+\bar{B}  \)
+2. simplify
+   - \( AC \)
+   - \( A+\bar{C} \)
+   - \( \bar{A}+B\bar{C}+\bar{B}C \)
+   - \( A+B \)
+     
+* Logic Gates
+
+1. label
+   - NOT
+   - AND
+   - OR
+   - XOR
+   - NAND
+   - NOR
+   - NXOR
+2. covert
+   - \( \bar{A}+\bar{B} \)
+   - \( \bar{A}B+A\bar{B} \)
+   - \( \bar{A}\bar{B}+AB \)
+
+* State Intro
+
+* Finite State Machines
+
