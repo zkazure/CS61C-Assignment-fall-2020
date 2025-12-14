@@ -63,7 +63,7 @@ outer_loop_start:
 inner_loop_start:
     bge t1, s5, inner_loop_end
 
-    slli t4, t1 2
+    slli t4, t1, 2
     add t3, s1, t4
     
     mv a0, t2
