@@ -1,3 +1,5 @@
+    # -*- compile-command: "PYTHONPATH=../unittests python3 -m unittest unittests.TestMatmul -v"; -*-
+    
     .globl matmul
 
     .text
@@ -53,39 +55,44 @@ matmul:
     li t0, 0
 outer_loop_start:
     bge t0, s3, outer_loop_end
-    li t1, 0
+    mul t3, t0, s4
+    slli t3, t3, 2
+    add t2, s0, t3
 
+    li t1, 0
 inner_loop_start:
     bge t1, s5, inner_loop_end
 
-    mv a0, s0
-    mv a1, s1
+    slli t4, t1 2
+    add t3, s1, t4
+    
+    mv a0, t2
+    mv a1, t3
     mv a2, s4
     li a3, 1
-    mv a4, s4
-    addi sp, sp, -8
+    mv a4, s5
+    addi sp, sp, -16
     sw t0, 0(sp)
     sw t1, 4(sp)
+    sw t2, 8(sp)
+    sw t3, 12(sp)
     jal ra, dot
     lw t0, 0(sp)
     lw t1, 4(sp)
-    addi sp, sp, 8
+    lw t2, 8(sp)
+    lw t3, 12(sp)
+    addi sp, sp, 16
 
-    sw a0, 0(s2)
+    mul t5, t0, s5
+    slli t5, t5, 2
+    add t4, t5, s2
+    slli t5, t1, 2
+    add t4, t4, t5
+    sw a0, 0(t4)
 
     addi t1, t1, 1
-    addi s1, s1, 4
-    addi s2, s2, 4
     j inner_loop_start
 inner_loop_end:
-    li t2, 4
-    mul t2, t2, s4
-    add s0, s0, t2
-    li t2, 4
-    mul t2, t2, s5
-    li t3, -1
-    mul t3, t3, t2
-    add s1, s1, t3
     addi t0, t0, 1
 
     j outer_loop_start
