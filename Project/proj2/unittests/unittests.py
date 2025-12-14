@@ -79,17 +79,36 @@ class TestDot(TestCase):
     def test_simple(self):
         t = AssemblyTest(self, "dot.s")
         # create arrays in the data section
-        raise NotImplementedError("TODO")
+        # raise NotImplementedError("TODO")
         # TODO
         # load array addresses into argument registers
+        v0 = t.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+        v1 = t.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+        t.input_array("a0", v0)
+        t.input_array("a1", v1)
         # TODO
         # load array attributes into argument registers
+        t.input_scalar("a2", 9)
+        t.input_scalar("a3", 1)
+        t.input_scalar("a4", 1)
         # TODO
         # call the `dot` function
         t.call("dot")
         # check the return value
+        t.check_scalar("a0", 285)
         # TODO
         t.execute()
+    def test_stride(self):
+        t = AssemblyTest(self, "dot.s")
+        v0 = t.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+        v1 = t.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+        t.input_array("a0", v0)
+        t.input_array("a1", v1)
+        t.input_scalar("a2", 9)
+        t.input_scalar("a3", 1)
+        t.input_scalar("a4", 2)
+        t.call("dot")
+        t.check_scalar("a0", 22)
 
     @classmethod
     def tearDownClass(cls):
