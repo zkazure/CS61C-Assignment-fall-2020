@@ -98,6 +98,7 @@ class TestDot(TestCase):
         t.check_scalar("a0", 285)
         # TODO
         t.execute()
+
     def test_stride(self):
         t = AssemblyTest(self, "dot.s")
         v0 = t.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
@@ -147,31 +148,29 @@ class TestMatmul(TestCase):
         # check the content of the output array
         # TODO
         t.check_array(array_out, result)
-        
+
         # generate the assembly file and run it through venus, we expect the simulation to exit with code `code`
         t.execute(code=code)
 
     def test_simple(self):
         self.do_matmul(
-            [1, 2, 3, 4, 5, 6, 7, 8, 9], 3, 3,
-            [1, 2, 3, 4, 5, 6, 7, 8, 9], 3, 3,
-            [30, 36, 42, 66, 81, 96, 102, 126, 150]
+            [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            3,
+            3,
+            [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            3,
+            3,
+            [30, 36, 42, 66, 81, 96, 102, 126, 150],
         )
 
     def test_test(self):
-        self.do_matmul(
-            [1, 2, 3], 1, 3,
-            [1, 2, 3], 3, 1,
-            [14]
-        )
+        self.do_matmul([1, 2, 3], 1, 3, [1, 2, 3], 3, 1, [14])
 
     def test_first(self):
         self.do_matmul(
-            [1, 2, 3, 4, 5, 6], 2, 3,
-            [1, 2, 3, 4, 5, 6], 3, 2,
-            [22, 28, 49, 64]
-    )
-        
+            [1, 2, 3, 4, 5, 6], 2, 3, [1, 2, 3, 4, 5, 6], 3, 2, [22, 28, 49, 64]
+        )
+
     @classmethod
     def tearDownClass(cls):
         print_coverage("matmul.s", verbose=False)
@@ -179,7 +178,7 @@ class TestMatmul(TestCase):
 
 class TestReadMatrix(TestCase):
 
-    def do_read_matrix(self, fail='', code=0):
+    def do_read_matrix(self, fail="", code=0):
         t = AssemblyTest(self, "read_matrix.s")
         # load address to the name of the input file into register a0
         t.input_read_filename("a0", "inputs/test_read_matrix/test_input.bin")
@@ -214,14 +213,18 @@ class TestReadMatrix(TestCase):
 
 class TestWriteMatrix(TestCase):
 
-    def do_write_matrix(self, fail='', code=0):
+    def do_write_matrix(self, fail="", code=0):
         t = AssemblyTest(self, "write_matrix.s")
         outfile = "outputs/test_write_matrix/student.bin"
         # load output file name into a0 register
         t.input_write_filename("a0", outfile)
         # load input array and other arguments
-        raise NotImplementedError("TODO")
+        # raise NotImplementedError("TODO")
         # TODO
+        array = t.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+        t.input_array("a1", array)
+        t.input_scalar("a2", 3)
+        t.input_scalar("a3", 3)
         # call `write_matrix` function
         t.call("write_matrix")
         # generate assembly and run it through venus
@@ -253,8 +256,12 @@ class TestClassify(TestCase):
         t = self.make_test()
         out_file = "outputs/test_basic_main/student0.bin"
         ref_file = "outputs/test_basic_main/reference0.bin"
-        args = ["inputs/simple0/bin/m0.bin", "inputs/simple0/bin/m1.bin",
-                "inputs/simple0/bin/inputs/input0.bin", out_file]
+        args = [
+            "inputs/simple0/bin/m0.bin",
+            "inputs/simple0/bin/m1.bin",
+            "inputs/simple0/bin/inputs/input0.bin",
+            out_file,
+        ]
         # call classify function
         t.call("classify")
         # generate assembly and pass program arguments directly to venus
@@ -273,8 +280,12 @@ class TestClassify(TestCase):
 class TestMain(TestCase):
 
     def run_main(self, inputs, output_id, label):
-        args = [f"{inputs}/m0.bin", f"{inputs}/m1.bin", f"{inputs}/inputs/input0.bin",
-                f"outputs/test_basic_main/student{output_id}.bin"]
+        args = [
+            f"{inputs}/m0.bin",
+            f"{inputs}/m1.bin",
+            f"{inputs}/inputs/input0.bin",
+            f"outputs/test_basic_main/student{output_id}.bin",
+        ]
         reference = f"outputs/test_basic_main/reference{output_id}.bin"
         t = AssemblyTest(self, "main.s", no_utils=True)
         t.call("main")

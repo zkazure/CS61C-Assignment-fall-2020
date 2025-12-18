@@ -3,7 +3,7 @@
     .globl read_matrix
 
     .text
-    # ==============================================================================
+    # ==========================================================================
     # FUNCTION: Allocates memory and reads in a binary file as a matrix of integers
     #
     # FILE FORMAT:
@@ -25,7 +25,7 @@
     #   this function terminates the program with error code 91.
     # - If you receive an fclose error or eof,
     #   this function terminates the program with error code 92.
-    # ==============================================================================
+    # ==========================================================================
 
 read_matrix:
 
