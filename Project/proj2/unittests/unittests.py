@@ -49,6 +49,24 @@ class TestRelu(TestCase):
 
 
 class TestArgmax(TestCase):
+    def test_zero(self):
+        t = AssemblyTest(self, "argmax.s")
+        array0 = t.array([0, 0, 0, 0])
+        t.input_array("a0", array0)
+        t.input_scalar("a1", len(array0))
+        t.call("argmax")
+        t.check_scalar("a0", 0)
+        t.execute()
+
+    def test_negative(self):
+        t = AssemblyTest(self, "argmax.s")
+        array = t.array([-1, 0, 2])
+        t.input_array("a0", array)
+        t.input_scalar("a1", 3)
+        t.call("argmax")
+        t.check_scalar("a0", 2)
+        t.execute()
+
     def test_simple(self):
         t = AssemblyTest(self, "argmax.s")
         # create an array in the data section
@@ -65,7 +83,7 @@ class TestArgmax(TestCase):
         t.call("argmax")
         # TODO
         # check that the register a0 contains the correct output
-        t.check_scalar("a0", 7)
+        t.check_scalar("a0", 8)
         # TODO
         # generate the `assembly/TestArgmax_test_simple.s` file and run it through venus
         t.execute()
@@ -268,9 +286,11 @@ class TestClassify(TestCase):
         t.execute(args=args)
 
         # compare the output file and
-        raise NotImplementedError("TODO")
+        # raise NotImplementedError("TODO")
+        t.check_file_output(out_file, ref_file)
         # TODO
         # compare the classification output with `check_stdout`
+        t.check_stdout(2)
 
     @classmethod
     def tearDownClass(cls):
