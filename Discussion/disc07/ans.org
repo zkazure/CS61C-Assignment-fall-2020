@@ -1,0 +1,50 @@
+#+TITLE: Discussion 07
+
+* Pre-Check
+
+1. false.
+2. false.
+3. false.
+
+* Single-Cycle CPU
+
+** Explain 
+- *IF*: get *PC*, fetch instruction
+- *ID*: generate control signals from instructions.
+- *EX*: ALU calculation and do branch comparison. 
+- *MEM*: get the memory address of destination register
+- *WB*: write back
+
+** Fill Table
+
+|        | add | ori |  lw | sw  | beq | jal | bltu |
+|--------+-----+-----+-----+-----+-----+-----+------|
+| BrEq   |   * |   * |   * | *   | 1/0 |   * | *    |
+| BrLT   |   * |   * |   * | *   | *   |   * | 1/0  |
+| PCSel  |   0 |   0 |   0 | 0   | 1/0 |   1 | 1/0  |
+| ImmSel |   * |   I |   I | S   | SB  |  UJ | SB   |
+| BrUn   |   * |   * |   * | *   | *   |   * | 1    |
+| ASel   |   0 |   0 |   0 | 0   | 1   |   1 | 0    |
+| BSel   |   0 |   1 |   1 | 1   | 1   |   1 | 1    |
+| ALUSel | add |  or | add | add | add | add | add  |
+| MemRW  |   0 |   0 |   0 | 1   | 0   |   0 | 0    |
+| RegWEn |   1 |   1 |   1 | 0   | 0   |   1 | 0    |
+| WBSel  |   1 |   1 |   0 | *   | *   |   2 | *    |
+
+
+** Clocking Methodology
+
+|      | IF | ID | EX | MEM | WB | Total Time |
+|------+----+----+----+-----+----+------------|
+| add  | x  | x  | x  |     | x  | 600ps      |
+| ori  | x  | x  | x  |     | x  | 600ps      |
+| lw   | x  | x  | x  | x   | x  | 800ps      |
+| sw   | x  | x  | x  | x   |    | 700ps      |
+| beq  | x  | x  | x  |     |    | 500ps      |
+| jal  | x  | x  | x  |     | x  | 600ps      |
+| bltu | x  | x  | x  |     |    | 500ps      |
+
+
+- lw
+- 800ps
+- it can only clock as fastest as the slowest time
