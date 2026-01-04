@@ -1,0 +1,32 @@
+#+TITLE: Discussion 08
+
+* Pre-Check
+
+1. true
+2. true
+3. false. Those data loaded by =lw=
+4. stall or predict what branch will be taken. 
+
+* Pipelining Registers
+
+1. 保存中间计算的结果和控制信号，防止被后面的指令替代。
+2. 由于 pipelining 处理器的每个 stage 都在运行不同的指令，如果保留原结构，那么每
+   个周期的 PC 传输线都会传递不同的值。所以必须在最后决定分支的 MEM 阶段，重新计
+   算一遍。
+3. 让每个阶段都能稳定处理对应的指令。
+
+* Performance Analysis
+
+1. 950ps
+2. 300ps
+3. 3.2 倍。这是由于必须在每一个阶段设置一个“中转”的寄存器。同时每个阶段的用时不同
+   pipelining 必须选择时间最长的周期。
+
+* Hazards
+
+1. t0 在 C5 写回寄存器之前就又被重新使用了。forwarding 需要在 C4, C5 阶段传递给
+   ALU 新的 t0。
+2. 3 条。ID 阶段就在尝试读取寄存器的值了。
+3. 第三条指令。we must stall. insert a nop(no-operation)
+4. reorder it 2-3-1-4
+5. branch prediction
