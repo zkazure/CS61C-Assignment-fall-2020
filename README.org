@@ -2,7 +2,7 @@
 
 This the a log file to record the progress of lab and proj.
 
-<2026-01-07 Wed> finish lab06
+<2026-01-07 Wed> finish lab06, lecture 27, finish disc09
 
 <2026-01-05 Mon> learn lecture 24, lecture 25, lecture 26
 
