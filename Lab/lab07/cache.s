@@ -14,7 +14,6 @@
 #          array[index] = array[index] + 1;	// Option 1: Two cache accesses - read AND write
 #      }
 #    }
-
 .data
 array:	.word	2048		# max array size specified in BYTES (DO NOT CHANGE)
 

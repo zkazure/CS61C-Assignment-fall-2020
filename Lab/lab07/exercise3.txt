@@ -7,6 +7,31 @@ Part 1
     blocksize = 20, n = 5000: 
     blocksize = 20, n = 10000: 
 
+❯ ./transpose 10000 33
+Testing naive transpose: 90.78 milliseconds
+Testing transpose with blocking: 148.056 milliseconds
+
+❯ ./transpose 100 20
+Testing naive transpose: 0.003 milliseconds
+Testing transpose with blocking: 0.003 milliseconds
+
+❯ ./transpose 1000 20
+Testing naive transpose: 0.683 milliseconds
+Testing transpose with blocking: 0.514 milliseconds
+
+❯ ./transpose 2000 20
+Testing naive transpose: 3.542 milliseconds
+Testing transpose with blocking: 4.333 milliseconds
+
+❯ ./transpose 5000 20
+Testing naive transpose: 21.277 milliseconds
+Testing transpose with blocking: 38.088 milliseconds
+
+❯ ./transpose 10000 20
+Testing naive transpose: 91.807 milliseconds
+Testing transpose with blocking: 146.14 milliseconds
+
+
     Checkoff Question 1:
     Checkoff Question 2:
 
@@ -17,4 +42,15 @@ Part 2
     blocksize = 1000, n = 10000:
     blocksize = 5000, n = 10000:
 
-    Checkoff Question 3:
+❯ ./transpose 10000 500
+Testing naive transpose: 86.541 milliseconds
+Testing transpose with blocking: 56.802 milliseconds
+
+❯ ./transpose 10000 1000
+Testing naive transpose: 86.24 milliseconds
+^PTesting transpose with blocking: 91.83 milliseconds
+
+❯ ./transpose 10000 5000
+Testing naive transpose: 86.599 milliseconds
+Testing transpose with blocking: 85.803 milliseconds
+Checkoff Question 3:
