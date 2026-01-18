@@ -1,0 +1,7 @@
+#+TITLE: README
+
+This is a project that requests us to made a CPU. That is crazy.
+
+* Part A
+** Task 1
+不允许使用除法器。
