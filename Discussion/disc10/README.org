@@ -1,0 +1,47 @@
+#+TITLE: Discussion 10
+
+* Pre-Check
+
+1. false.
+2. false.
+3. false, there is no combining programs together for efficiency.
+4. true.
+5. true.
+
+* Polling & Interrupts
+
+| Operation  | Definition           | Pro/Good for | Con        |
+|------------+----------------------+--------------+------------|
+| Polling    | 持续轮询 I/O 设备    | 响应速度快   | 消耗资源多 |
+| Interrupts | I/O 设备主动通知 CPU | 消耗资源少   | 速度慢        |
+
+* Memory Mapped I/O
+
+#+begin_src asm
+  receive_wait:
+      lui t0 0xffff00
+      lw t1 0(t0)
+      addi t1 t1 1
+      beq t1 x0 receiv_wait
+      lb t2 4(t0)
+
+  transmitter_wait:
+      lw t1 8(t0)
+      addi t1 t1 1
+      beq t1 x0 transmitter_wait
+      sb t2 12(t0)
+#+end_src
+
+* Forking
+
+
+#+begin_src C
+  int x = 10;
+  int y = 0;
+  int pid = fork();
+  if (pid == 0) {
+    y++;
+  } else {
+    x--;
+  }
+#+end_src
