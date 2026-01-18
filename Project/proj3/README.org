@@ -18,4 +18,4 @@ This is a project that requests us to made a CPU. That is crazy.
 - [X] 11 mulhu: Result = (A * B)[63:32]
 - [X] 12 sub: Result = A - B
 - [X] 13 bsel: Result = B
-- [ ] 14 mulh: Result = (signed) (A * B)[63:32]
+- [X] 14 mulh: Result = (signed) (A * B)[63:32]
