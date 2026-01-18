@@ -312,7 +312,97 @@ end TCL_Generic;
       <a name="label" val="B"/>
       <a name="width" val="32"/>
     </comp>
+    <comp lib="0" loc="(560,640)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="A"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(560,670)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="B"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(560,720)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="A"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(560,750)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="B"/>
+      <a name="width" val="32"/>
+    </comp>
     <comp lib="0" loc="(570,590)" name="Splitter">
+      <a name="appear" val="center"/>
+      <a name="bit1" val="0"/>
+      <a name="bit10" val="1"/>
+      <a name="bit11" val="1"/>
+      <a name="bit12" val="1"/>
+      <a name="bit13" val="1"/>
+      <a name="bit14" val="1"/>
+      <a name="bit15" val="1"/>
+      <a name="bit16" val="1"/>
+      <a name="bit17" val="1"/>
+      <a name="bit18" val="1"/>
+      <a name="bit19" val="1"/>
+      <a name="bit2" val="0"/>
+      <a name="bit20" val="1"/>
+      <a name="bit21" val="1"/>
+      <a name="bit22" val="1"/>
+      <a name="bit23" val="1"/>
+      <a name="bit24" val="1"/>
+      <a name="bit25" val="1"/>
+      <a name="bit26" val="1"/>
+      <a name="bit27" val="1"/>
+      <a name="bit28" val="1"/>
+      <a name="bit29" val="1"/>
+      <a name="bit3" val="0"/>
+      <a name="bit30" val="1"/>
+      <a name="bit31" val="1"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="1"/>
+      <a name="bit6" val="1"/>
+      <a name="bit7" val="1"/>
+      <a name="bit8" val="1"/>
+      <a name="bit9" val="1"/>
+      <a name="incoming" val="32"/>
+    </comp>
+    <comp lib="0" loc="(570,670)" name="Splitter">
+      <a name="appear" val="center"/>
+      <a name="bit1" val="0"/>
+      <a name="bit10" val="1"/>
+      <a name="bit11" val="1"/>
+      <a name="bit12" val="1"/>
+      <a name="bit13" val="1"/>
+      <a name="bit14" val="1"/>
+      <a name="bit15" val="1"/>
+      <a name="bit16" val="1"/>
+      <a name="bit17" val="1"/>
+      <a name="bit18" val="1"/>
+      <a name="bit19" val="1"/>
+      <a name="bit2" val="0"/>
+      <a name="bit20" val="1"/>
+      <a name="bit21" val="1"/>
+      <a name="bit22" val="1"/>
+      <a name="bit23" val="1"/>
+      <a name="bit24" val="1"/>
+      <a name="bit25" val="1"/>
+      <a name="bit26" val="1"/>
+      <a name="bit27" val="1"/>
+      <a name="bit28" val="1"/>
+      <a name="bit29" val="1"/>
+      <a name="bit3" val="0"/>
+      <a name="bit30" val="1"/>
+      <a name="bit31" val="1"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="1"/>
+      <a name="bit6" val="1"/>
+      <a name="bit7" val="1"/>
+      <a name="bit8" val="1"/>
+      <a name="bit9" val="1"/>
+      <a name="incoming" val="32"/>
+    </comp>
+    <comp lib="0" loc="(570,750)" name="Splitter">
       <a name="appear" val="center"/>
       <a name="bit1" val="0"/>
       <a name="bit10" val="1"/>
@@ -367,6 +457,14 @@ end TCL_Generic;
       <a name="label" val="srl4"/>
       <a name="width" val="32"/>
     </comp>
+    <comp lib="0" loc="(700,650)" name="Tunnel">
+      <a name="label" val="sra5"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(700,730)" name="Tunnel">
+      <a name="label" val="sll6"/>
+      <a name="width" val="32"/>
+    </comp>
     <comp lib="1" loc="(660,310)" name="AND Gate">
       <a name="width" val="32"/>
     </comp>
@@ -378,6 +476,13 @@ end TCL_Generic;
     </comp>
     <comp lib="3" loc="(650,570)" name="Shifter">
       <a name="shift" val="lr"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="3" loc="(650,650)" name="Shifter">
+      <a name="shift" val="ar"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="3" loc="(650,730)" name="Shifter">
       <a name="width" val="32"/>
     </comp>
     <comp lib="3" loc="(670,210)" name="Adder">
@@ -415,12 +520,20 @@ end TCL_Generic;
     <wire from="(560,510)" to="(600,510)"/>
     <wire from="(560,560)" to="(610,560)"/>
     <wire from="(560,590)" to="(570,590)"/>
+    <wire from="(560,640)" to="(610,640)"/>
+    <wire from="(560,670)" to="(570,670)"/>
+    <wire from="(560,720)" to="(610,720)"/>
+    <wire from="(560,750)" to="(570,750)"/>
     <wire from="(570,190)" to="(570,200)"/>
     <wire from="(570,200)" to="(630,200)"/>
     <wire from="(570,220)" to="(570,230)"/>
     <wire from="(570,220)" to="(630,220)"/>
     <wire from="(590,580)" to="(610,580)"/>
+    <wire from="(590,660)" to="(610,660)"/>
+    <wire from="(590,740)" to="(610,740)"/>
     <wire from="(650,570)" to="(700,570)"/>
+    <wire from="(650,650)" to="(700,650)"/>
+    <wire from="(650,730)" to="(700,730)"/>
     <wire from="(660,310)" to="(690,310)"/>
     <wire from="(660,400)" to="(700,400)"/>
     <wire from="(660,490)" to="(700,490)"/>
