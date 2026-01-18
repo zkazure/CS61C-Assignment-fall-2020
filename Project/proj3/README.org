@@ -8,8 +8,8 @@ This is a project that requests us to made a CPU. That is crazy.
 
 - [X] 0 add: Result = A + B                    
 - [X] 1 and: Result = A & B                    
-- [X] 2 or: `Result = A                        
-- [ ] 3 xor: Result = A ^ B                    
+- [X] 2 or:  Result = A                        
+- [X] 3 xor: Result = A ^ B                    
 - [ ] 4 srl: Result = (unsigned) A >> B        
 - [ ] 5 sra: Result = (signed) A >> B          
 - [ ] 6 sll: Result = A << B                   
