@@ -17,5 +17,5 @@ This is a project that requests us to made a CPU. That is crazy.
 - [X] 10 mul: Result = (signed) (A * B)[31:0]
 - [X] 11 mulhu: Result = (A * B)[63:32]
 - [X] 12 sub: Result = A - B
-- [ ] 13 bsel: Result = B
+- [X] 13 bsel: Result = B
 - [ ] 14 mulh: Result = (signed) (A * B)[63:32]
