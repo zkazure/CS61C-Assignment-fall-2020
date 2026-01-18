@@ -14,9 +14,7 @@ This is a project that requests us to made a CPU. That is crazy.
 - [X] 5 sra: Result = (signed) A >> B
 - [X] 6 sll: Result = A << B
 - [X] 7 slt: Result = (A < B (signed)) ? 1 : 0
-- [ ] 8 Unused
-- [ ] 9 Unused
-- [ ] 10 mul: Result = (signed) (A * B)[31:0]
+- [X] 10 mul: Result = (signed) (A * B)[31:0]
 - [ ] 11 mulhu: Result = (A * B)[63:32]
 - [ ] 12 sub: Result = A - B
 - [ ] 13 bsel: Result = B
