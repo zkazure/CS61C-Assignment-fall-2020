@@ -15,6 +15,7 @@
       <a name="radix" val="16"/>
     </tool>
     <tool name="Tunnel">
+      <a name="facing" val="east"/>
       <a name="width" val="2"/>
     </tool>
     <tool name="Pull Resistor">
@@ -259,6 +260,10 @@ end TCL_Generic;
       <a name="label" val="rd"/>
       <a name="width" val="5"/>
     </comp>
+    <comp lib="0" loc="(300,780)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="write_en_x0"/>
+    </comp>
     <comp lib="0" loc="(320,340)" name="Tunnel">
       <a name="label" val="read_reg1"/>
       <a name="width" val="5"/>
@@ -280,6 +285,18 @@ end TCL_Generic;
     </comp>
     <comp lib="0" loc="(320,650)" name="Tunnel">
       <a name="label" val="clk"/>
+    </comp>
+    <comp lib="0" loc="(340,800)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="clk"/>
+    </comp>
+    <comp lib="0" loc="(370,760)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(490,760)" name="Tunnel">
+      <a name="label" val="x0"/>
+      <a name="width" val="32"/>
     </comp>
     <comp lib="0" loc="(540,220)" name="Pin">
       <a name="facing" val="south"/>
@@ -410,6 +427,10 @@ end TCL_Generic;
       <a name="label" val="s0"/>
       <a name="width" val="32"/>
     </comp>
+    <comp lib="4" loc="(390,730)" name="Register">
+      <a name="appearance" val="logisim_evolution"/>
+      <a name="width" val="32"/>
+    </comp>
     <comp lib="8" loc="(1457,306)" name="Text">
       <a name="text" val="OUTPUTS from your circuit"/>
     </comp>
@@ -444,6 +465,7 @@ end TCL_Generic;
     <wire from="(300,340)" to="(320,340)"/>
     <wire from="(300,390)" to="(320,390)"/>
     <wire from="(300,440)" to="(320,440)"/>
+    <wire from="(300,780)" to="(390,780)"/>
     <wire from="(320,310)" to="(320,320)"/>
     <wire from="(320,360)" to="(320,370)"/>
     <wire from="(320,410)" to="(320,420)"/>
@@ -451,6 +473,9 @@ end TCL_Generic;
     <wire from="(320,540)" to="(320,580)"/>
     <wire from="(320,620)" to="(320,630)"/>
     <wire from="(320,670)" to="(320,680)"/>
+    <wire from="(340,800)" to="(390,800)"/>
+    <wire from="(370,760)" to="(390,760)"/>
+    <wire from="(450,760)" to="(490,760)"/>
     <wire from="(480,120)" to="(1230,120)"/>
     <wire from="(480,120)" to="(480,240)"/>
     <wire from="(480,240)" to="(520,240)"/>
