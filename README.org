@@ -42,6 +42,3 @@ before finish lecture 29-30.
 <2025-10-30 Thu> learn lecture 10, 11
 
 <2025-10-27 Mon> finish lab00, disc01, learn lecture 8, 9
-
-
-
