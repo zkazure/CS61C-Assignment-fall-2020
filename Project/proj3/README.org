@@ -1,0 +1,21 @@
+#+TITLE: README
+
+This is a project that requests us to made a CPU. That is crazy.
+
+* Part A
+** Task 1
+不允许使用除法器。
+
+- [X] 0 add: Result = A + B
+- [X] 1 and: Result = A & B
+- [X] 2 or:  Result = A
+- [X] 3 xor: Result = A ^ B
+- [X] 4 srl: Result = (unsigned) A >> B
+- [X] 5 sra: Result = (signed) A >> B
+- [X] 6 sll: Result = A << B
+- [X] 7 slt: Result = (A < B (signed)) ? 1 : 0
+- [X] 10 mul: Result = (signed) (A * B)[31:0]
+- [X] 11 mulhu: Result = (A * B)[63:32]
+- [X] 12 sub: Result = A - B
+- [X] 13 bsel: Result = B
+- [X] 14 mulh: Result = (signed) (A * B)[63:32]
