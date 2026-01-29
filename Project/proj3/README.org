@@ -61,3 +61,21 @@ This is a project that requests us to made a CPU. That is crazy.
 | jalr rd, rs1, imm     | I    |   0x67 |    0x0 | -           | R[rd] ← PC + 4 PC ← R[rs1] + {imm}                      |
 | csrw rd, csr, rs1     |      |   0x73 |    0x1 | -           | CSR[csr] ← R[rs1]                                       |
 | csrwi rd, csr, uimm   |      |        |    0x5 | -           | CSR[csr] ← {uimm}                                       |
+** ALUSel
+| Switch Value | Instruction                            |
+|--------------+----------------------------------------|
+|            0 | add: Result = A + B                    |
+|            1 | and: Result = A & B                    |
+|            2 | or: `Result = A                        |
+|            3 | xor: Result = A ^ B                    |
+|            4 | srl: Result = (unsigned) A >> B        |
+|            5 | sra: Result = (signed) A >> B          |
+|            6 | sll: Result = A << B                   |
+|            7 | slt: Result = (A < B (signed)) ? 1 : 0 |
+|            8 | Unused                                 |
+|            9 | Unused                                 |
+|           10 | mul: Result = (signed) (A * B)[31:0]   |
+|           11 | mulhu: Result = (A * B)[63:32]         |
+|           12 | sub: Result = A - B                    |
+|           13 | bsel: Result = B                       |
+|           14 | mulh: Result = (signed) (A * B)[63:32] |
