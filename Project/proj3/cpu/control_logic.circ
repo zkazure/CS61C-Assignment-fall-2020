@@ -15,6 +15,7 @@
       <a name="radix" val="16"/>
     </tool>
     <tool name="Tunnel">
+      <a name="facing" val="north"/>
       <a name="width" val="2"/>
     </tool>
     <tool name="Pull Resistor">
@@ -29,6 +30,9 @@
     </tool>
   </lib>
   <lib desc="#Gates" name="1">
+    <tool name="NOT Gate">
+      <a name="facing" val="north"/>
+    </tool>
     <tool name="PLA">
       <a name="table" val=""/>
     </tool>
@@ -36,6 +40,7 @@
   <lib desc="#Plexers" name="2">
     <tool name="Multiplexer">
       <a name="enable" val="false"/>
+      <a name="facing" val="north"/>
     </tool>
     <tool name="Demultiplexer">
       <a name="enable" val="false"/>
@@ -571,6 +576,14 @@ end TCL_Generic;
       <a name="facing" val="north"/>
       <a name="label" val="BSel"/>
     </comp>
+    <comp lib="0" loc="(670,350)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="label" val="BSel"/>
+    </comp>
+    <comp lib="0" loc="(670,420)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="is_R"/>
+    </comp>
     <comp lib="0" loc="(730,210)" name="Pin">
       <a name="facing" val="south"/>
       <a name="label" val="ALUSel"/>
@@ -670,6 +683,9 @@ end TCL_Generic;
     </comp>
     <comp lib="1" loc="(470,430)" name="OR Gate">
       <a name="size" val="30"/>
+    </comp>
+    <comp lib="1" loc="(670,370)" name="NOT Gate">
+      <a name="facing" val="north"/>
     </comp>
     <comp lib="2" loc="(470,600)" name="Multiplexer">
       <a name="enable" val="false"/>
@@ -809,6 +825,8 @@ end TCL_Generic;
     <wire from="(620,210)" to="(620,230)"/>
     <wire from="(640,230)" to="(650,230)"/>
     <wire from="(670,210)" to="(670,230)"/>
+    <wire from="(670,350)" to="(670,370)"/>
+    <wire from="(670,400)" to="(670,420)"/>
     <wire from="(690,230)" to="(710,230)"/>
     <wire from="(70,100)" to="(280,100)"/>
     <wire from="(70,100)" to="(70,230)"/>
