@@ -2,6 +2,8 @@
 
 This the a log file to record the progress of lab and proj.
 
+<2026-01-30 Fri> finish lab08
+
 <2026-01-18 Sun> finish disc10.
 before finish lecture 29-30.
 
