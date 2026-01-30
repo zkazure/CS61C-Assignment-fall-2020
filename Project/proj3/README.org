@@ -79,3 +79,6 @@ This is a project that requests us to made a CPU. That is crazy.
 |           12 | sub: Result = A - B                    |
 |           13 | bsel: Result = B                       |
 |           14 | mulh: Result = (signed) (A * B)[63:32] |
+
+~lui~ need ~bsel~
+~csrwi~ maybe need. 
