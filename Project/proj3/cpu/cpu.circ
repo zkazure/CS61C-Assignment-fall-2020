@@ -30,6 +30,12 @@
     </tool>
   </lib>
   <lib desc="#Gates" name="1">
+    <tool name="NOT Gate">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="OR Gate">
+      <a name="facing" val="north"/>
+    </tool>
     <tool name="PLA">
       <a name="table" val=""/>
     </tool>
@@ -117,7 +123,7 @@ end TCL_Generic;
       <a name="SocBusSelection" val=""/>
     </tool>
     <tool name="SocBus">
-      <a name="SocBusIdentifier" val="0x00000174B3FEA9D2663047b5"/>
+      <a name="SocBusIdentifier" val="0x0000019C0F16F78A40af001d"/>
     </tool>
     <tool name="Socmem">
       <a name="SocBusSelection" val=""/>
@@ -138,6 +144,7 @@ end TCL_Generic;
   <lib desc="file#branch_comp.circ" name="15"/>
   <lib desc="file#imm_gen.circ" name="16"/>
   <lib desc="file#csr.circ" name="17"/>
+  <lib desc="file#byte_enable_gen.circ" name="18"/>
   <main name="cpu"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -483,6 +490,7 @@ end TCL_Generic;
     <comp lib="15" loc="(940,770)" name="branch_comp"/>
     <comp lib="16" loc="(570,770)" name="imm_gen"/>
     <comp lib="17" loc="(1310,800)" name="csr"/>
+    <comp lib="18" loc="(1430,960)" name="byte_enable_gen"/>
     <comp lib="2" loc="(1180,540)" name="Multiplexer">
       <a name="enable" val="false"/>
       <a name="width" val="32"/>
@@ -575,6 +583,8 @@ end TCL_Generic;
     <wire from="(1340,620)" to="(1660,620)"/>
     <wire from="(1410,190)" to="(1410,220)"/>
     <wire from="(1430,210)" to="(1480,210)"/>
+    <wire from="(1430,960)" to="(1450,960)"/>
+    <wire from="(1450,700)" to="(1450,960)"/>
     <wire from="(150,510)" to="(170,510)"/>
     <wire from="(150,780)" to="(150,800)"/>
     <wire from="(1500,190)" to="(1500,220)"/>
@@ -609,8 +619,10 @@ end TCL_Generic;
     <wire from="(240,1030)" to="(490,1030)"/>
     <wire from="(240,740)" to="(240,770)"/>
     <wire from="(240,740)" to="(300,740)"/>
-    <wire from="(240,770)" to="(240,1030)"/>
+    <wire from="(240,770)" to="(240,960)"/>
     <wire from="(240,770)" to="(350,770)"/>
+    <wire from="(240,960)" to="(1210,960)"/>
+    <wire from="(240,960)" to="(240,1030)"/>
     <wire from="(250,580)" to="(280,580)"/>
     <wire from="(280,430)" to="(1080,430)"/>
     <wire from="(280,430)" to="(280,480)"/>
@@ -672,6 +684,8 @@ end TCL_Generic;
     <wire from="(810,950)" to="(990,950)"/>
     <wire from="(870,190)" to="(870,220)"/>
     <wire from="(890,210)" to="(940,210)"/>
+    <wire from="(900,980)" to="(1210,980)"/>
+    <wire from="(900,980)" to="(900,1060)"/>
     <wire from="(940,510)" to="(950,510)"/>
     <wire from="(940,530)" to="(960,530)"/>
     <wire from="(940,550)" to="(970,550)"/>
