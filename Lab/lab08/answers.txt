@@ -1,7 +1,7 @@
 Exercise 1:
-    1.
-    2.
-    3.
+    1. 2^5/4 = 8 word
+    2. 1, 9, 1, 9
+    3. yes. yes.
 
 Exercise 2:
     1.
