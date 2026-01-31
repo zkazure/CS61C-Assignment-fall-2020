@@ -45,7 +45,7 @@
       <a name="radix" val="10signed"/>
     </tool>
     <tool name="Tunnel">
-      <a name="facing" val="east"/>
+      <a name="facing" val="south"/>
       <a name="width" val="32"/>
     </tool>
     <tool name="Pull Resistor">
@@ -701,6 +701,19 @@ end TCL_Generic;
       <a name="facing" val="north"/>
       <a name="label" val="MemRW"/>
     </comp>
+    <comp lib="0" loc="(810,350)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="label" val="MemRW"/>
+    </comp>
+    <comp lib="0" loc="(830,540)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="opcode"/>
+      <a name="width" val="7"/>
+    </comp>
+    <comp lib="0" loc="(840,520)" name="Constant">
+      <a name="value" val="0x23"/>
+      <a name="width" val="7"/>
+    </comp>
     <comp lib="0" loc="(880,210)" name="Pin">
       <a name="facing" val="south"/>
       <a name="label" val="WBSel"/>
@@ -825,6 +838,9 @@ end TCL_Generic;
       <a name="width" val="7"/>
     </comp>
     <comp lib="3" loc="(690,900)" name="Comparator">
+      <a name="width" val="7"/>
+    </comp>
+    <comp lib="3" loc="(830,450)" name="Comparator">
       <a name="width" val="7"/>
     </comp>
     <comp lib="8" loc="(174,93)" name="Text">
@@ -1006,8 +1022,21 @@ end TCL_Generic;
     <wire from="(730,210)" to="(730,230)"/>
     <wire from="(730,350)" to="(730,840)"/>
     <wire from="(750,230)" to="(790,230)"/>
+    <wire from="(770,440)" to="(770,500)"/>
+    <wire from="(770,440)" to="(790,440)"/>
+    <wire from="(770,500)" to="(840,500)"/>
+    <wire from="(780,460)" to="(780,510)"/>
+    <wire from="(780,460)" to="(790,460)"/>
+    <wire from="(780,510)" to="(850,510)"/>
     <wire from="(810,210)" to="(810,230)"/>
+    <wire from="(810,350)" to="(810,400)"/>
+    <wire from="(810,400)" to="(840,400)"/>
     <wire from="(830,230)" to="(860,230)"/>
+    <wire from="(830,450)" to="(840,450)"/>
+    <wire from="(830,540)" to="(850,540)"/>
+    <wire from="(840,400)" to="(840,450)"/>
+    <wire from="(840,500)" to="(840,520)"/>
+    <wire from="(850,510)" to="(850,540)"/>
     <wire from="(880,210)" to="(880,230)"/>
     <wire from="(900,230)" to="(920,230)"/>
     <wire from="(940,210)" to="(940,230)"/>
