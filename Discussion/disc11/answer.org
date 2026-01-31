@@ -1,0 +1,36 @@
+#+TITLE: Discussion 11
+
+* Pre-Check
+
+1. false. Only when a program try to access the page that do not exist. (or it
+   have an invalid bit)
+2. false
+
+* Addressing
+
+1. benefits of using virtual memory
+   - the abstract layer of virtual memory make creating a software more easier.
+   - separate different process, more safe.
+   - dismiss the difference of multiple computers.
+   - make program faster
+2. the valid bit of the TLB should all be set to 0.
+
+* VM Access Patterns
+
+|  VPN |  PPN | Valid | Dirty | LRU |
+|------+------+-------+-------+-----|
+| 0x01 | 0x11 |     1 |     1 |   5 |
+| 0x23 | 0x18 |     1 |     1 |   2 |
+| 0x10 | 0x13 |     1 |     1 |   6 |
+| 0x20 | 0x12 |     1 |     1 |   1 |
+| 0x13 | 0x17 |     1 |     1 |   3 |
+| 0x11 | 0x14 |     1 |     0 |   4 |
+| 0xac | 0x15 |     1 |     1 |   7 |
+| 0x34 | 0x19 |     1 |     1 |   0 |
+#+TBLFM: $5=$5+1
+1. TLB hits
+2. TLB miss
+3. hits
+4. miss
+5. hit
+6. miss
