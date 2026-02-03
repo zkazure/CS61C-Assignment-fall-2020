@@ -1,7 +1,6 @@
 #include "omp_apps.h"
 
-/* -------------------------------Utilties, Do Not
- * Modify------------------------------*/
+/* ---------------------------Utilties, Do Not Modify------------------------*/
 double *gen_array(int n) {
     double *array = (double *)malloc(n * sizeof(double));
     for (int i = 0; i < n; i++)
@@ -24,8 +23,7 @@ int verify(double *x, double *y,
     return 1;
 }
 
-/* -------------------------------Vector
- * Addition------------------------------*/
+/* -----------------------------Vector Addition------------------------------*/
 // BEGIN PART 1 EX 2
 void v_add_naive(double *x, double *y, double *z) {
 #pragma omp parallel
@@ -167,8 +165,7 @@ char *compute_dotp(int arr_size) {
     return report_buf;
 }
 
-/* ---------------------Image Processing: Sobel Edge
- * Detector----------------------*/
+/* ---------------------Image Processing: Sobel Edge Detector----------------*/
 int sobel[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
 void sobel_filter(bmp_pixel **src, bmp_pixel **dst, int row, int col) {
     int res = 0;
