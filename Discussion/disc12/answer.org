@@ -1,0 +1,62 @@
+#+TITLE: Discussion 12
+
+* Pre-Check
+
+1. false
+2. TRUE. local miss rate = misses on own level / access to own level. global
+   miss rate = misses on own level / accesses to memory. memory access is the
+   request from CPU to ask data from memory, *NOT* the accesses to DRAM
+3. FALSE. DLP
+
+* AMAT
+1. 20%
+2. 40%
+3. 25%
+4. \( 2 + 20\% \times (15 + 25\% \times 100) = 10 \)
+5. \( 2 + 20\% \times (15 + 25\% \times (c + 30\% \times 100)) \le 8 \), so that \( c  \le 30 \)
+
+* Flynns Taxonomy
+
+1. single instruction single data. traditional computer program.
+2. single instructions multiple data. SSE Intrinsics.
+3. multiple instruction single data.
+4. multiple instructions multiple data. Map Reduce
+
+
+* Data-Level Parallelism
+
+1. fill blanks
+   - ~vector = _mm_mullo_epi32(vector, vector);~
+   - more
+     + ~__m128i vector_ones = _mmset1_epi32(1);~
+     + ~__m128i result = _mm_add_epi32(vector, vector_ones)~
+     + ~_mm_storeu_si128((__m128i *)arr, result)~
+   - more
+     + ~__128i result = _mm_add_epi32(_mm_loadu_si128((__m128i *) (arr+4)),
+       vector))~
+     + ~_mm_storeu_si128((__m128i *) arr, result)~
+   - more
+     + ~__m128i fives = _mm_set1_epi32(5);~
+     + ~__m128i mask = _mm_cmpeq_epi32(vector, fives);~
+     + ~__m128i result = _mm_and_128i(mask, vector);~
+     + ~_mm_storeu_si128((__m128i *) arr, result)~
+     + ~vector = _mm_storeu_si128((__m128i *) arr, result)~
+     + ~__m128i mask = _mm_cmpeq_epi32(vector, fives);~
+     + ~__m128i result = _mm_and_128i(mask, vector);~
+     + ~vector = _mm_storeu_si128((__m128i *) (arr + 4), result)~
+2. rewrite in SSE
+   #+begin_src C
+     static int product_vectorized(int n, int *a) {
+       int result[4];
+       __m128i pro_v = _mm_set1_128i(1);
+       for (int i = 0; i + 3 < n; i+=4) {
+         prod_v = _mm_mullo_epi32(prod_v, _mm_loadu_si128((__m128i *) (a + i)));
+       }
+       _mm_storeu_si128((__m128i *) result, prod_v);
+       for (int i = n/4 * 4; i < n ; i++) {
+         result[0] *= a[i];
+       }
+       return result[0] * result[1] * result[2] * result[3];
+     }
+
+   #+end_src
