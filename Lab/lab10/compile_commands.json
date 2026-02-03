@@ -1,0 +1,100 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-std=gnu99",
+      "-c",
+      "-fopenmp",
+      "-o",
+      "omp_app.o",
+      "omp_apps.c"
+    ],
+    "directory": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10",
+    "file": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10/omp_apps.c",
+    "output": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10/omp_app.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-std=gnu99",
+      "-c",
+      "-fopenmp",
+      "-o",
+      "dotp.o",
+      "dotp.c"
+    ],
+    "directory": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10",
+    "file": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10/dotp.c",
+    "output": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10/dotp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-std=gnu99",
+      "-c",
+      "-fopenmp",
+      "-o",
+      "hello.o",
+      "hello.c"
+    ],
+    "directory": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10",
+    "file": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10/hello.c",
+    "output": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10/hello.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-std=gnu99",
+      "-c",
+      "-fopenmp",
+      "-o",
+      "server_basic.o",
+      "server.c"
+    ],
+    "directory": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10",
+    "file": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10/server.c",
+    "output": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10/server_basic.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-std=gnu99",
+      "-c",
+      "-fopenmp",
+      "-o",
+      "libhttp.o",
+      "libhttp/libhttp.c"
+    ],
+    "directory": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10",
+    "file": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10/libhttp/libhttp.c",
+    "output": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10/libhttp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-std=gnu99",
+      "-c",
+      "-fopenmp",
+      "-o",
+      "omp_apps.o",
+      "omp_apps.c"
+    ],
+    "directory": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10",
+    "file": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10/omp_apps.c",
+    "output": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10/omp_apps.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-std=gnu99",
+      "-c",
+      "-fopenmp",
+      "-o",
+      "server_utils_serial.o",
+      "server_utils.c"
+    ],
+    "directory": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10",
+    "file": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10/server_utils.c",
+    "output": "/home/kazure/Documents/cs_learning/CS61C-Assignment-fall-2020/Lab/lab10/server_utils_serial.o"
+  }
+]
