@@ -1,0 +1,67 @@
+#+TITLE: Discussion 13
+
+* Pre-Check
+
+1. false.
+2. false
+3. false
+
+* Coherency and Atomics
+
+1. one thread write variable per time.
+2. code
+   #+begin_src asm
+         addi t0, x0, 0
+         sw t0, 0(a1)
+         # spawn 4 threads in this code
+     Check:
+         jal ra, get_thread_num
+         lr.w t0, (a1)
+         bne t0, a0, Check
+     Done:
+         addi t0, t0, 1
+         sc.w a0, t0, (a1)
+         bne a0, x0, Check
+         ...
+         ...
+         jr ra
+   #+end_src
+
+* Thread-Level Parallelism
+1. judgement.
+   - slower
+   - slower, always false
+   - faster
+2. 还是可能存在多个线程访问一个变量，导致 cache block 失效。
+3. more
+   - 多线程同时写一个 product
+   - code
+     #+begin_src C
+       double fast_product(double *arr, int n) {
+           double product = 1;
+       #pragma omp parallel for
+           for (int i = 0; i < n; ++i) {
+       #pragma omp critical
+               product *= arr[i];
+           }
+       }
+
+     #+end_src
+   - code
+     #+begin_src C
+       double fast_product(double *arr, int n) {
+           double product = 1;
+       #pragma omp parallel reduction(*: product)
+           for (int i = 0; i < n; ++i) {
+               product *= arr[i];
+           }
+       }
+
+     #+end_src
+
+* Amdahl's Law
+
+1. \( \frac{1}{0.01 + \frac{0.99}{32}} = 25 \)
+2. more
+   - h
+   - \( \frac{1}{0.4 + \frac{0.6}{8}} = 2 \)
