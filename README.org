@@ -1,6 +1,10 @@
 #+TITLE: README
 
+剩下的两个作业就没办法写了。一个 proj4 和 lab12 都需要在官方提供的机器上运行。
+
 This the a log file to record the progress of lab and proj.
+
+<2026-02-05 Thu> finish disc12, 13, 14, lab9, lab10
 
 <2026-01-31 Sat> finish disc11
 
